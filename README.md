@@ -159,12 +159,21 @@ Navigate to `http://localhost:3000`
 ```
 autodrive-ai/
 ├── src/
-│   └── car-buyer-website.jsx    # Main application component
+│   ├── index.js                 # Application entry point
+│   └── CarBuyerWebsite.jsx      # Main application component
 ├── public/
 │   └── index.html               # HTML entry point
+├── .github/
+│   └── workflows/
+│       └── azure-static-web-apps.yml  # Azure deployment workflow
 ├── package.json                 # Project dependencies
+├── Dockerfile                   # Docker configuration
+├── nginx.conf                   # Nginx web server config
+├── staticwebapp.config.json     # Azure Static Web Apps config
+├── AZURE_DEPLOYMENT.md          # Azure deployment guide
+├── .env.example                 # Environment variables template
 ├── README.md                    # This file
-└── .gitignore                  # Git ignore rules
+└── .gitignore                   # Git ignore rules
 ```
 
 ## 🎯 Component Architecture

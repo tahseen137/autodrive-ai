@@ -2,7 +2,7 @@
   "name": "autodrive-ai",
   "version": "1.0.0",
   "description": "AI-powered car buyer platform with vehicle comparison and intelligent chat assistant",
-  "main": "src/car-buyer-website.jsx",
+  "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
