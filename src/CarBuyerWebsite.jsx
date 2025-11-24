@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, MapPin, Zap, MessageSquare, ChevronRight, Car, TrendingUp, Star, X } from 'lucide-react';
+import ProductComparison from './ProductComparison';
 
 const CarBuyerWebsite = () => {
   const [selectedTab, setSelectedTab] = useState('compare');
@@ -310,6 +311,23 @@ const CarBuyerWebsite = () => {
               }}
             >
               Compare
+            </button>
+            <button
+              onClick={() => setSelectedTab('products')}
+              style={{
+                background: selectedTab === 'products' ? 'linear-gradient(135deg, #ff6b00, #ffa500)' : 'transparent',
+                color: '#fff',
+                border: selectedTab === 'products' ? 'none' : '1px solid rgba(255, 107, 0, 0.3)',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '8px',
+                cursor: 'pointer',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                transition: 'all 0.3s',
+                fontFamily: "'Outfit', sans-serif"
+              }}
+            >
+              Products
             </button>
             <button
               onClick={() => setSelectedTab('offers')}
@@ -667,6 +685,11 @@ const CarBuyerWebsite = () => {
               ))}
             </div>
           </div>
+        )}
+
+        {/* Products Tab */}
+        {selectedTab === 'products' && (
+          <ProductComparison />
         )}
 
         {/* Locations Tab */}
