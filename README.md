@@ -10,6 +10,14 @@ AutoDrive AI is a next-generation car buying platform that leverages artificial 
 
 ## ✨ Key Features
 
+### 🆕 AI Product Comparison (NEW!)
+- **Compare Up to 4 Products**: Select any products for detailed AI analysis
+- **Smart Feature Analysis**: AI evaluates 8+ key features with scores (0-100)
+- **Visual Indicators**: Green arrows for best, red for worst, gray for neutral
+- **Personalized Recommendations**: Get specific suggestions based on use cases
+- **Real-time Analysis**: Powered by Claude 3.5 Sonnet API
+- **Search & Filter**: Quickly find products to compare
+
 ### 🔄 Interactive Car Comparison
 - **Multi-Select Comparison**: Choose up to 3 vehicles for side-by-side analysis
 - **Comprehensive Specs**: View detailed information including:
@@ -135,14 +143,21 @@ npm install
 yarn install
 ```
 
-3. **Run the development server**
+3. **Set up environment variables**
+Create a `.env` file in the root directory:
+```env
+REACT_APP_ANTHROPIC_API_KEY=your_api_key_here
+```
+Get your API key from https://console.anthropic.com/
+
+4. **Run the development server**
 ```bash
 npm start
 # or
 yarn start
 ```
 
-4. **Open in browser**
+5. **Open in browser**
 Navigate to `http://localhost:3000`
 
 ### Dependencies
