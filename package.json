@@ -1,7 +1,7 @@
 {
   "name": "autodrive-ai",
   "version": "1.0.0",
-  "description": "AI-powered car buyer platform with vehicle comparison and intelligent chat assistant",
+  "description": "AI-powered electric vehicle comparison platform with Claude AI assistant - discover, compare, and find your perfect EV",
   "main": "src/index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -13,14 +13,26 @@
   },
   "keywords": [
     "react",
-    "car-buying",
-    "ai",
-    "claude",
     "electric-vehicles",
-    "vehicle-comparison"
+    "ev",
+    "ai-assistant",
+    "claude-ai",
+    "car-comparison",
+    "vehicle-marketplace",
+    "automotive",
+    "anthropic",
+    "web-app"
   ],
-  "author": "Your Name",
+  "author": "Tahseen",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tahseen137/autodrive-ai.git"
+  },
+  "homepage": "https://github.com/tahseen137/autodrive-ai#readme",
+  "bugs": {
+    "url": "https://github.com/tahseen137/autodrive-ai/issues"
+  },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

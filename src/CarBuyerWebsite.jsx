@@ -138,6 +138,17 @@ const CarBuyerWebsite = () => {
   const handleAIChat = async () => {
     if (!userInput.trim() || isLoading) return;
 
+    const apiKey = process.env.REACT_APP_ANTHROPIC_API_KEY;
+    
+    if (!apiKey) {
+      setChatMessages(prev => [...prev, 
+        { role: 'user', content: userInput },
+        { role: 'assistant', content: '⚠️ API key not configured. Please add REACT_APP_ANTHROPIC_API_KEY to your .env file.' }
+      ]);
+      setUserInput('');
+      return;
+    }
+
     const userMessage = userInput;
     setUserInput('');
     setChatMessages(prev => [...prev, { role: 'user', content: userMessage }]);
@@ -152,6 +163,8 @@ const CarBuyerWebsite = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01'
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-20250514',
@@ -166,17 +179,23 @@ const CarBuyerWebsite = () => {
         })
       });
 
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error?.message || `API error: ${response.status}`);
+      }
+
       const data = await response.json();
-      const assistantMessage = data.content[0].text;
-      setChatMessages(prev => [...prev, { role: 'user', content: userMessage }, { role: 'assistant', content: assistantMessage }]);
+      const assistantMessage = data.content?.[0]?.text || 'Sorry, I received an invalid response.';
+      setChatMessages(prev => [...prev, { role: 'assistant', content: assistantMessage }]);
     } catch (error) {
+      console.error('AI Chat Error:', error);
       setChatMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: 'Sorry, I encountered an error. Please try again.' 
+        content: `⚠️ Error: ${error.message}. Please check your API key and try again.` 
       }]);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   };
 
   return (
